@@ -1,0 +1,122 @@
+:root {
+  --barn-red: #780000;
+  --fire-brick: #c1121f;
+  --papaya-whip: #fdf0d5;
+  --prussian-blue: #003049;
+  --air-superiority-blue: #669bbc;
+}
+
+/* General Reset */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  background-color: var(--papaya-whip);
+  color: var(--prussian-blue);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--prussian-blue);
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-links li:hover {
+  color: var(--fire-brick);
+}
+
+/* Sections */
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--barn-red);
+  text-align: center;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 0 2rem;
+}
+
+/* Cards */
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--prussian-blue);
+  margin-bottom: 0.5rem;
+}
+
+.card-content {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Buttons */
+.read-more,
+.toggle-btn {
+  background: var(--fire-brick);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.3s;
+  align-self: flex-start;
+  margin-top: 0.8rem;
+}
+
+.read-more:hover,
+.toggle-btn:hover {
+  background: var(--barn-red);
+}
+
+/* Section spacing */
+.posts-section,
+.groups-section {
+  padding: 2rem 0;
+}
