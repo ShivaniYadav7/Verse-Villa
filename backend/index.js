@@ -1,17 +1,28 @@
 const express = require("express");
 require("dotenv").config();
 const connectDB = require("./config/db");
-const cors = require("cors");
 
 connectDB();
 
 const app = express();
 
+const cors = require("cors");
+
+// Load allowed origins from environment variable and split to array
+const allowedOriginsEnv = process.env.CORS_ALLOWED_ORIGINS || "";
+const allowedOrigins = allowedOriginsEnv.split(",");
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true); // Allow non-browser requests like Postman
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg =
+          "The CORS policy for this site does not allow access from the specified Origin.";
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
     credentials: true,
   })
 );
