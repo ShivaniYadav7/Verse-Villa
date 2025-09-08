@@ -34,12 +34,13 @@ const CreatePostPage = () => {
   const uploadImageToCloudinary = async (file) => {
   const formData = new FormData();
   formData.append('image', file);
-  const response = await axios.post('http://localhost:3001/api/posts/upload', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-      'Authorization': `Bearer ${token}`,
-    },
-  });
+  const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/posts/upload`, formData, {
+  headers: {
+    'Content-Type': 'multipart/form-data',
+    'Authorization': `Bearer ${token}`,
+  },
+});
+
   return response.data.imageUrl;
 };
 
